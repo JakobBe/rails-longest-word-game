@@ -50,5 +50,14 @@ class GamesControllerController < ApplicationController
       return result
     end
     @result = run_game(@answer, grid, start_time, end_time)
+
+    if session[:score] && session[:i]
+      session[:i] += 1
+     @average = (session[:score] += @result[:score])/session[:i]
+    else
+      session[:i] = 1
+      @average = @result[:score]
+      session[:score] = @result[:score]
+    end
   end
 end
