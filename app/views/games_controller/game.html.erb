@@ -1,0 +1,14 @@
+
+<h2>All in or nothing! </h2>
+
+<h1>These are your letters: <%= @grid.join(" ") %> </h1>
+
+<form action="/score" method="get">
+  <input type="text" name="answer" placeholder="Typ in your answer">
+  <input type="submit" value="Play">
+  <input type="hidden" name="grid" value="<%= @grid.join("") %>">
+  <input type="hidden" name="time" value="<%= @start_time %>">
+
+</form>
+
+
